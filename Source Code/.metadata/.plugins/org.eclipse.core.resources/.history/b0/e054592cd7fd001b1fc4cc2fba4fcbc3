@@ -1,0 +1,34 @@
+package com.lockedme;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FileDetails {
+	
+	
+	/**
+	 * This method will return the names of all the files in the specified folder
+	 * @param folderPath
+	 * @return fileNames
+	 */
+	public static List<String> getAllFiles(String folderPath)
+	{
+		// Creating File Object
+		File file=new File(folderPath);
+		
+		// Getting all the files into File Array
+		File[] listOfFiles= file.listFiles();
+		
+		//Declare a list to store file names
+		List<String> fileNames=new ArrayList<String>();
+		
+	    for (File f1 : listOfFiles) {
+			fileNames.add(f1.getName());
+		}
+	    
+	    //return file list
+	    return fileNames;
+	}
+
+}

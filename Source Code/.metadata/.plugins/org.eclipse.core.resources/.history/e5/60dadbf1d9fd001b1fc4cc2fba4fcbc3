@@ -1,0 +1,17 @@
+package com.lockedme;
+
+import java.util.List;
+
+public class LockedMeProject {
+
+	static final String folderpath="E:\\Simplilearn Docs\\Phase1Project\\Locker Project File";
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<String> fileNames=FileDetails.getAllFiles(folderpath);
+		
+		for(String file:fileNames)
+			System.out.println(file);
+	}
+
+}
+	
