@@ -7,13 +7,14 @@ import java.util.List;
 
 public class FileDetails {
 	
+	static boolean flag=false;
 	
 	/**
 	 * This method will return the names of all the files in the specified folder
 	 * @param folderPath
 	 * @return fileNames
 	 */
-	public static List<String> getAllFiles(String folderPath)
+	public static void getAllFiles(String folderPath)
 	{
 		// Creating File Object
 		File file=new File(folderPath);
@@ -28,8 +29,8 @@ public class FileDetails {
 			fileNames.add(f1.getName());
 		}
 	    
-	    //return file list
-	    return fileNames;
+	    for(String s:fileNames)
+	    	System.out.println(s);
 	}
 	
 	/**
@@ -39,28 +40,30 @@ public class FileDetails {
 	 * @param content
 	 * @return boolean
 	 */
-	public static boolean createFile(String folderpath, String fileName, List<String> content)
+	public static void createFile(String folderpath, String fileName, List<String> content)
 	{
 		try
 		{
 			File file =new File(folderpath,fileName);
 			FileWriter writer=new FileWriter(file);
 			
-			for(int i=0;i<content.size();i++)
-			{
-				
-			}
+
 			for(String s:content)
 			{
 				 writer.write(s+"\n");
 			}
 			writer.close();
-			return true;
+			flag= true;
 		}
 		catch(Exception e)
 		{
-			return false;
+			flag= false;
 		}
+		
+		if(flag)
+			System.out.println("File created successfully");
+		else
+			System.out.println("File not created, some error occured");
 	}
 	
 	/**
@@ -69,22 +72,55 @@ public class FileDetails {
 	 * @param fileName
 	 * @return boolean
 	 */
-	public static boolean deleteFile(String folderpath, String fileName)
+	public static void deleteFile(String folderpath, String fileName)
 	{
 		File file =new File(folderpath+"\\"+fileName);
 		try 
 		{
 		    if(file.delete())
-		    	return true;
+		    	flag= true;
 			else
-				return false;
+				flag= false;
 	
 		}
 		catch(Exception e)
 		{
-			return false;
+			flag= false;
 		}
 		
+		if(flag)
+			System.out.println("File deleted successfully");
+		else
+			System.out.println("File not deleted, some error occured");
+	
+	}
+	
+	/**
+	 * This method is used to search a file if the file exist in directory
+	 * @param folderpath
+	 * @param fileName
+	 * @return boolean
+	 */
+	public static void searchFile(String folderpath, String fileName)
+	{
+		File file =new File(folderpath+"\\"+fileName);
+		try 
+		{
+		    if(file.exists())
+		    	flag= true;
+			else
+				flag= false;
+	
+		}
+		catch(Exception e)
+		{
+			flag= false;
+		}
+		
+		if(flag)
+			System.out.println("The Searched File "+fileName+" is present");
+		else
+			System.out.println("File not present, some error occured");
 	}
 
 }
