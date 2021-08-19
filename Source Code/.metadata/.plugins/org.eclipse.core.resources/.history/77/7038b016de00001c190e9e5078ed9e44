@@ -24,7 +24,7 @@ public class LockedMeProject {
 		do {	
 		//Menu
 		System.out.println("*********************************************************");
-		System.out.println("1. Display all Files in Ascending Order");
+		System.out.println("1. Display all Files in the folder");
 		System.out.println("2. Add new File to folder");
 		System.out.println("3. Delete file from folder");
 		System.out.println("4. Search file");

@@ -3,7 +3,6 @@ package com.lockedme;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class FileDetails {
@@ -29,8 +28,6 @@ public class FileDetails {
 	    for (File f1 : listOfFiles) {
 			fileNames.add(f1.getName());
 		}
-	    
-	    Collections.sort(fileNames, String.CASE_INSENSITIVE_ORDER);
 	    
 	    for(String s:fileNames)
 	    	System.out.println(s);
